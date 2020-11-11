@@ -7,14 +7,17 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="entityManagerFactory" />
+          <factory-entry name="springboot" value="213c1044-c687-44a7-9aa8-079e7f000a23" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="Product" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/mapper/Product.xml</file>
+      <configuration process_explicitly_annotated="false">
+        <fileset id="fileset" name="Application" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/how2java/springboot/Application.java</file>
+          <file>jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/1.1.1/mybatis-spring-boot-autoconfigure-1.1.1.jar!/org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class</file>
+          <file>file://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/1.1.1/mybatis-spring-boot-autoconfigure-1.1.1.jar</file>
         </fileset>
       </configuration>
     </facet>
