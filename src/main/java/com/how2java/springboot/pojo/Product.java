@@ -9,15 +9,12 @@ public class Product {
     public int getId() {
         return id;
     }
-
     public String getName() {
         return name;
     }
-
     public float getPrice() {
         return price;
     }
-
     public int getCid() {
         return cid;
     }
@@ -25,16 +22,18 @@ public class Product {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setPrice(float price) {
         this.price = price;
     }
-
     public void setCid(int cid) {
         this.cid = cid;
+    }
+
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
     }
 }
