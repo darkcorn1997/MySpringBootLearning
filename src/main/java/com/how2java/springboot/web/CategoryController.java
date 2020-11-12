@@ -1,4 +1,7 @@
 package com.how2java.springboot.web;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import com.github.pagehelper.PageHelper;
@@ -16,7 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.how2java.springboot.dao.CategoryDAO;
 import com.how2java.springboot.pojo.Category;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class CategoryController {
@@ -103,5 +111,29 @@ public class CategoryController {
     @RequestMapping("/uploadPage")
     public String uploadPage() {
         return "uploadPage";
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public String upload(HttpServletRequest req, @RequestParam("file") MultipartFile file, Model m) {
+        //接受上传的文件
+        try {
+            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
+            //根据时间戳创建新的文件名，这样即便是第二次上传相同名称的文件，也不会把第一次的文件覆盖了
+            String destFileName = req.getServletContext().getRealPath("") + "uploaded" + File.separator + fileName;
+            //通过req.getServletContext().getRealPath("") 获取当前项目的真实路径，然后拼接前面的文件名
+
+            File destFile = new File(destFileName); //第一次运行的时候，文件所在的目录往往是不存在的，需要创建一下目录
+            destFile.getParentFile().mkdirs();
+            file.transferTo(destFile); //把浏览器上传的文件复制到希望的位置
+
+            m.addAttribute("fileName", fileName); //把文件名放在model里，以便后续显示用
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return "" + e.getMessage();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "" + e.getMessage();
+        }
+        return "showImg";
     }
 }

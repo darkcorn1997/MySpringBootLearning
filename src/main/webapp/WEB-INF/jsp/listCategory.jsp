@@ -14,7 +14,6 @@
             <td>name</td>
             <td>编辑</td>
             <td>删除</td>
-            <td>test</td>
         </tr>
         <!--通过page.getContent遍历当前页面的Category对象
         在分页的时候通过page.number获取当前页面，page.totalPages获取总页面数
@@ -26,7 +25,6 @@
                 <td>${c.name}</td>
                 <td><a href="editCategory?id=${c.id}">编辑</a></td>
                 <td><a href="deleteCategory?id=${c.id}">删除</a></td>
-                <td>测试</td>
             </tr>
         </c:forEach>
 
