@@ -1,5 +1,9 @@
 package com.how2java.springboot.pojo;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({ "handler","hibernateLazyInitializer" })
 public class Product {
     private int id;
     private String name;
