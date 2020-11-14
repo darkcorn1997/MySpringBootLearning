@@ -14,14 +14,14 @@ public interface ProductMapper {
     List<Product> findAll();
 
     @Insert("insert into product_ (name, price) values (#{name}, #{price})")
-    int save(Product product);
+    void save(Product product);
 
     @Delete("delete from product_ where id = #{id}")
-    int delete(int id);
+    void delete(int id);
 
     @Select("select * from product_ where id = #{id}")
     Product get(int id);
 
     @Update("update product_ set name = #{name} , price = #{price} where id = #{id}")
-    int update(Product product);
+    void update(Product product);
 }
