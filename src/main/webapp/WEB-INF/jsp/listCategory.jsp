@@ -55,6 +55,7 @@
     </form>
 
     <form id="formdelete" action="" method="post">
+        <!--form 下增加 filed, 虽然这个form的method是post, 但是springmvc看到这个_method的值是put后，会把其修改为delete.-->
         <input type="hidden" name="_method" value="DELETE">
     </form>
 </div>

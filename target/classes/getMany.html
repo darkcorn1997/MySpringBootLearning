@@ -16,11 +16,11 @@
         $.get(
                 url,
                 function(data) {
-                    var categorys = data;
-                     for(i in categorys){
+                    var products = data;
+                     for(i in products){
                          var old = $("#messageDiv").html();
-                         var category = categorys[i];
-                         $("#messageDiv").html(old + "<br>"+category.id+"   -----   "+category.name); 
+                         var product= products[i];
+                         $("#messageDiv").html(old + "<br>"+product.id +"   -----   "+ product.name);
                      }
          });  
     }); 
