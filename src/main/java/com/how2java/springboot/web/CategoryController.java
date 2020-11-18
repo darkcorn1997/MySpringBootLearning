@@ -33,7 +33,7 @@ public class CategoryController {
     private ProductMapper productMapper;
 
 
-	/**   Category  restful风格   **/
+	/**   Category  restful风格，其实并不算 应该使用@RestController，直接返回对象对应的json   **/
 
     @GetMapping("/categories")
     public String listCategory(Model m, //JPA分页查询，在参数里接受当前是第几页 start ，以及每页显示多少条数据 size。 默认值分别是0和5
