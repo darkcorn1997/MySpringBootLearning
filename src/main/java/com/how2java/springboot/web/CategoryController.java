@@ -36,7 +36,7 @@ public class CategoryController {
 	/**   Category  restful风格   **/
 
     @GetMapping("/categories")
-    public String listCategory(Model m, //在参数里接受当前是第几页 start ，以及每页显示多少条数据 size。 默认值分别是0和5
+    public String listCategory(Model m, //JPA分页查询，在参数里接受当前是第几页 start ，以及每页显示多少条数据 size。 默认值分别是0和5
                                @RequestParam(value = "start",defaultValue = "0") int start,
                                @RequestParam(value = "size",defaultValue = "5") int size) throws Exception {
         start = start<0? 0: start; //如果 start 为负，那么修改为0. 这个事情会发生在当前是首页，并点击了上一页的时候
@@ -77,7 +77,7 @@ public class CategoryController {
 /**   Product  非restful风格   **/
 
     @RequestMapping("/listProduct")
-    public String listProduct(Model m, //在参数里接受当前是第几页 start ，以及每页显示多少条数据 size。 默认值分别是0和5。
+    public String listProduct(Model m, //mybatis分页查询，在参数里接受当前是第几页 start ，以及每页显示多少条数据 size。 默认值分别是0和5。
                               @RequestParam(value = "start", defaultValue = "0") int start,
                               @RequestParam(value = "size", defaultValue = "5") int size) throws Exception {
         PageHelper.startPage(start, size, "id desc"); //根据start,size进行分页，并且设置id 倒排序
