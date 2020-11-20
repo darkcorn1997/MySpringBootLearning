@@ -3,11 +3,14 @@ package com.how2java.springboot.dao;
 import com.how2java.springboot.pojo.Product;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Component
-@Mapper
+
+/**MyBatis**/
+@Repository
+@Mapper //mybatis的注解，表明这个是一个Mapper;可以去掉，但相应地要在启动类上加上MapperScan("路径")
 public interface ProductMapper {
 
     @Select("select * from product_")

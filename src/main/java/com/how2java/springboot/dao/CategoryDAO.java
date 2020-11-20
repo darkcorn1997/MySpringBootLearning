@@ -6,6 +6,7 @@ import com.how2java.springboot.pojo.Category;
 
 import java.util.List;
 
+/**JPA**/
 public interface CategoryDAO extends JpaRepository<Category,Integer>{
 
     List<Category> findByName(String name);
