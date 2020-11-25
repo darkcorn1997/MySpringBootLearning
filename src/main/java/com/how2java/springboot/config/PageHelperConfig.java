@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
-@Configuration
+@Configuration //表示PageHelperConfig 这个类是用来做配置的
 public class PageHelperConfig {
-    @Bean
+    @Bean //表示启动PageHelper这个拦截器
     public PageHelper pageHelper() {
         PageHelper pageHelper = new PageHelper();
         Properties p = new Properties();
